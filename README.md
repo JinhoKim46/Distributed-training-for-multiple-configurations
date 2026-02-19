@@ -79,7 +79,7 @@ Slurm Job
        ├── ...
        └── Dynamically scheduled configs
 ```
-![Fig1](results_plot_3.png)
+![Fig1](Figures/results_plot_3.png)
 
 Ray handles:
 
