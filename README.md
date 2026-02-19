@@ -113,13 +113,13 @@ Ray handles:
 
 | Metric | Slurm (array job, n = 20) | Slurm + Ray (single job) | Note |
 | --- | --- | --- | --- |
-| Requested time per job | 17 s | 200 s |  |
-| Total requested time | 20 * 17 s = 340 s | 200 s | $\approx$ 58% lower |
+| Requested time per job | 20 s | 200 s |  |
+| Total requested time | 20 * 20 s = 400 s | 200 s | 50% lower |
 | Requested # GPU per job | 1 | 4 |  |
-| Total # GPU | 20 | 4 | $\approx$ 20% lower |
+| Total # GPU | 20 | 4 | 80% less |
 | Total running time | 180 s | 180 s |  |
-| Wasted blocked time | 160 s | 20 s | $\approx$ 12% lower |
-| Wasted GPU time | 1 * 160 s = 160 s | 4 * 20 s = 80 s | $\approx$ 50% lower |
+| Wasted blocked time | 220 s | 20 s | $\approx$ 91% lower |
+| Wasted GPU time | 1 * 220 s = 220 s | 4 * 20 s = 80 s | $\approx$ 63% lower |
 
 
 ## Take-Home Message
