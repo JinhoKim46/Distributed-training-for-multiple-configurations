@@ -79,6 +79,9 @@ Slurm Job
        ├── ...
        └── Dynamically scheduled configs
 ```
+
+When 4 GPUs are requested, Ray can run 4 configurations in parallel. As soon as one finishes, Ray schedules the next configuration on the freed GPU, ensuring continuous utilization.
+
 ![Fig1](Figures/results_plot_3.png)
 
 Ray handles:
