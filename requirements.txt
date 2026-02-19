@@ -1,0 +1,3 @@
+scikit-learn
+matplotlib
+ray[data,train,tune,serve]
