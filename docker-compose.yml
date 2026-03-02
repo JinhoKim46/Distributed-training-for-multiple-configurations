@@ -1,0 +1,9 @@
+services:
+  ray-training:
+    build: .
+    image: ray-training:latest
+    gpus: all
+    shm_size: "8gb"
+    volumes:
+      - .:/workspace
+    working_dir: /workspace

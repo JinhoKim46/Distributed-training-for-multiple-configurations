@@ -159,3 +159,34 @@ pip install -r requirements.txt
 ```bash
 python simple_classification_Ray.py
 ```
+
+### Alternative: Docker
+
+> Requires [Docker](https://docs.docker.com/get-docker/) with the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) for GPU support.
+
+**Build and run with Docker Compose (recommended)**
+```bash
+docker compose up --build
+```
+This builds the image from the [Dockerfile](Dockerfile) and runs `simple_classification_Ray.py` inside the container with all GPUs exposed and the project directory mounted at `/workspace`.
+
+**Build and run manually**
+```bash
+# Build the image
+docker build -t ray-training:latest .
+
+# Run the container with GPU access
+docker run --gpus all --shm-size=8gb -v $(pwd):/workspace ray-training:latest
+```
+
+**Run an interactive shell inside the container**
+```bash
+docker run --gpus all --shm-size=8gb -v $(pwd):/workspace -it ray-training:latest bash
+```
+
+Key options used:
+| Option | Purpose |
+| --- | --- |
+| `--gpus all` | Expose all host GPUs to the container |
+| `--shm-size=8gb` | Increase shared memory (required by Ray) |
+| `-v $(pwd):/workspace` | Mount the project directory so outputs are persisted on the host |
